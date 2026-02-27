@@ -48,3 +48,13 @@ npm run start
 - `lib/` utilities (auth, db, i18n, astrology, validation)
 - `prisma/` schema + seed
 - `public/` static assets
+
+
+## Netlify deployment (fixes 404 routing)
+- Use the official Next.js runtime plugin so Netlify serves App Router routes and API handlers correctly.
+- This repo includes `netlify.toml` with `@netlify/plugin-nextjs`.
+- In Netlify UI, avoid setting a custom publish directory like `.next`; let the plugin manage routing/artifacts.
+- Required env vars on Netlify:
+  - `DATABASE_URL`
+  - `NEXTAUTH_SECRET`
+  - `NEXTAUTH_URL`
