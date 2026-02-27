@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { prisma } from '@/lib/db';
 
 type ContactMessageRow = Awaited<ReturnType<typeof prisma.contactMessage.findMany>>[number];
