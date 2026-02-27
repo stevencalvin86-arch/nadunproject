@@ -1,0 +1,1 @@
+export default function FAQ(){return <div><h1 className="text-3xl font-bold">FAQ</h1><ul className="mt-4 space-y-2"><li><strong>How accurate?</strong> Uses deterministic astronomy approximation in this starter.</li><li><strong>Can I download reports?</strong> Yes, PDF and DOCX.</li></ul></div>}

@@ -1,0 +1,1 @@
+export default function About() { return <div><h1 className="text-3xl font-bold">About</h1><p className="mt-3">Sinhala Hadahana combines traditional Sri Lankan astrology presentation with modern UX and bilingual reporting.</p></div>; }
