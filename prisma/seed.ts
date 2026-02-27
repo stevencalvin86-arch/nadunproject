@@ -51,8 +51,7 @@ async function main() {
         published: true,
         featured: true
       }
-    ],
-    skipDuplicates: true
+    ]
   });
 }
 
