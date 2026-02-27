@@ -1,9 +1,9 @@
-import type { ContactMessage } from '@prisma/client';
-
 import { prisma } from '@/lib/db';
 
+type ContactMessageRow = Awaited<ReturnType<typeof prisma.contactMessage.findMany>>[number];
+
 export default async function Inbox() {
-  const msgs: ContactMessage[] = await prisma.contactMessage.findMany({
+  const msgs = await prisma.contactMessage.findMany({
     orderBy: { createdAt: 'desc' }
   });
 
@@ -19,7 +19,7 @@ export default async function Inbox() {
           </tr>
         </thead>
         <tbody>
-          {msgs.map((m: ContactMessage) => (
+          {msgs.map((m: ContactMessageRow) => (
             <tr key={m.id}>
               <td>{m.name}</td>
               <td>{m.email}</td>
