@@ -1,4 +1,4 @@
-import { PrismaClient, PostType, Role } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -27,7 +27,7 @@ async function main() {
 
   await prisma.user.upsert({
     where: { email: 'admin@sinhala-hadahana.com' },
-    create: { email: 'admin@sinhala-hadahana.com', name: 'Admin', role: Role.ADMIN, passwordHash: 'demo-admin-password' },
+    create: { email: 'admin@sinhala-hadahana.com', name: 'Admin', role: "ADMIN", passwordHash: 'demo-admin-password' },
     update: {}
   });
 
@@ -38,7 +38,7 @@ async function main() {
         slug: 'lagna-career-guide',
         excerpt: 'Understand ascendant impact on work and leadership.',
         content: 'Professional service model aligned with modern horoscope consulting packages.',
-        type: PostType.BLOG,
+        type: "BLOG",
         published: true,
         featured: true
       },
@@ -47,7 +47,7 @@ async function main() {
         slug: 'birth-time-accuracy',
         excerpt: 'Steps to improve birth-time based reading quality.',
         content: 'Collect hospital record, verify timezone, and location coordinates.',
-        type: PostType.RESOURCE,
+        type: "RESOURCE",
         published: true,
         featured: true
       }

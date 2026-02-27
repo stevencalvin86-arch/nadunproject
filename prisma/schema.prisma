@@ -7,29 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  ADMIN
-  EDITOR
-}
 
-enum PostType {
-  BLOG
-  RESOURCE
-  PAGE
-}
 
-enum ContactStatus {
-  NEW
-  IN_PROGRESS
-  DONE
-}
 
 model User {
   id            String    @id @default(cuid())
   name          String?
   email         String    @unique
   passwordHash  String?
-  role          Role      @default(EDITOR)
+  role          String    @default("EDITOR")
   image         String?
   accounts      Account[]
   sessions      Session[]
@@ -110,7 +96,7 @@ model Post {
   excerpt         String?
   content         String
   language        String    @default("en")
-  type            PostType  @default(BLOG)
+  type            String    @default("BLOG")
   published       Boolean   @default(false)
   scheduledAt     DateTime?
   featuredImage   String?
@@ -151,7 +137,7 @@ model ContactMessage {
   name      String
   email     String
   message   String
-  status    ContactStatus @default(NEW)
+  status    String @default("NEW")
   notes     String?
   createdAt DateTime      @default(now())
 }
